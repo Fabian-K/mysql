@@ -34,7 +34,7 @@ if [ "$1" = 'mysqld' ]; then
 		
 		if [ "$MYSQL_DATABASE" ]; then
 			for DATABASE in $MYSQL_DATABASE; do
-				echo "CREATE DATABASE IF NOT EXISTS $DATABASE ;" >> "$TEMP_FILE"
+				echo "CREATE DATABASE IF NOT EXISTS $DATABASE ;" >> "$tempSqlFile"
 			done
 		fi
 		
@@ -43,7 +43,7 @@ if [ "$1" = 'mysqld' ]; then
 			
 			if [ "$MYSQL_DATABASE" ]; then
 				for DATABASE in $MYSQL_DATABASE; do
-					echo "GRANT ALL ON $DATABASE.* TO '$MYSQL_USER'@'%' ;" >> "$TEMP_FILE"
+					echo "GRANT ALL ON $DATABASE.* TO '$MYSQL_USER'@'%' ;" >> "$tempSqlFile"
 				done
 			fi
 		fi
